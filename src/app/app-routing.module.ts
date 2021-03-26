@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router'
 import { CustomerModule } from './customer/customer.module';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes : Routes = [
   {
@@ -14,8 +15,12 @@ const appRoutes : Routes = [
     loadChildren: './customer/customer.module#CustomerModule'
   },
   {
+    path:"login",
+    component: LoginComponent
+  },
+  {
     path: '', 
-    redirectTo: '/home', 
+    redirectTo: '/login', 
     pathMatch: 'full'
   },
   {
