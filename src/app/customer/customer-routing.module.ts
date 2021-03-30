@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerModule } from './customer.module';
+import { AuthGuard } from '../auth/auth.guard';
+import { Role } from '../auth/role.enum';
 
 const customerRoutes: Routes = [
 {
@@ -12,7 +14,9 @@ const customerRoutes: Routes = [
       path:'',
       component: CustomerListComponent
     }
-  ]
+  ],
+  canActivate: [AuthGuard],
+  data:{ expectedRole : Role.AdminSupplier}
 }
 ];
 

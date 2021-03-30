@@ -6,16 +6,21 @@ import { Role } from './role.enum';
 import { catchError, map } from "rxjs/operators";
 import * as decode from "jwt-decode";
 import { transformError } from '../common/common';
+import { CacheService } from './cache.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService extends CacheService{
 
   private readonly authProvider: (email:string, password: string) => Observable<IServerAuthResponse>;
-  authStatus = new BehaviorSubject<IAuthStatus>(defaultAuthSatatus);
+  authStatus = new BehaviorSubject<IAuthStatus>(this.getItem('authStatus') ||  defaultAuthSatatus);
   
   constructor(private httpClient: HttpClient) { 
+    super();
+    this.authStatus.subscribe(authStatus => {
+      this.setItem('authStatus', authStatus);
+    });
     this.authProvider = this.userAuthProvider;
   }
 
@@ -28,6 +33,7 @@ export class AuthService {
 
     const loginResponse = this.authProvider(email, password).pipe(
       map(value => {
+        this.setToken(value.access_Token);
         const result = decode(value.access_Token);
         return result as IAuthStatus;
       }), catchError(transformError)
@@ -47,7 +53,25 @@ export class AuthService {
   }
 
   logout(){
+    this.clearToken();
     this.authStatus.next(defaultAuthSatatus);
+  }
+
+  //Metodos para localStorage
+  private setToken(jwt: string){
+    this.setItem('jwt', jwt);
+  }
+
+  getToken(): string{
+    return this.getItem('jwt') || '';
+  }
+
+  private clearToken(){
+    this.removeItem('jwt');
+  }
+
+  getAuthStatus(): IAuthStatus{
+    return this.getItem('authStatus');
   }
 }
 
