@@ -21,9 +21,10 @@ import { MatToolbarModule,
           
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
+import { AuthHttpInterceptor } from './auth/AuthHttpInterceptor';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,12 @@ import { AuthGuard } from './auth/auth.guard';
     MatProgressSpinnerModule,
     HttpClientModule
   ],  
-  providers: [AuthService,AuthGuard],
+  providers: [AuthService,AuthGuard,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthHttpInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
