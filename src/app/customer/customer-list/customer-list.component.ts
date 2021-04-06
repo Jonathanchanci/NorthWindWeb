@@ -10,9 +10,13 @@ import { CustomerService } from './customer.service';
 })
 export class CustomerListComponent implements OnInit {
 
+  numberOfRecords: number = 0;
   customers: Customer[] = [];
+  pageSizeOptions: number[] = [5 , 10, 20, 30, 50];
+  pageSize: number = 10;
+  pageIndex: number = 0;
   constructor(private customerServices: CustomerService) { 
-    this.getCustomer(1, 20);
+    this.getCustomer(1, this.pageSize);
   }
 
   ngOnInit() {
@@ -21,7 +25,14 @@ export class CustomerListComponent implements OnInit {
   getCustomer(page: number, rows: number): void{
     this.customerServices.getCustomerList(page, rows).
       subscribe(
-        response => this.customers = response
+        response => {
+          this.customers = response;
+          this.numberOfRecords = response[0].totalRecords;
+        }
       );
+  }
+
+  changePage(event: any): void{
+    this.getCustomer(event.pageIndex + 1, event.pageSize);
   }
 }

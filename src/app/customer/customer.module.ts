@@ -13,7 +13,8 @@ import { MatToolbarModule,
   MatCardModule,
   MatSlideToggleModule,
   MatSelectModule,
-  MatOptionModule} from '@angular/material';
+  MatOptionModule,
+  MatPaginatorModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { MatToolbarModule,
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   declarations: [CustomerListComponent]
 })

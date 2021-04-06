@@ -5,4 +5,5 @@ export interface Customer {
     city: string;
     conuntry: string;
     phone: string;
+    totalRecords: number
 }
