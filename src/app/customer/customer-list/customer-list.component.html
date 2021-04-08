@@ -1,4 +1,7 @@
 <div class="list-container">
+  <div>
+    <button mat-raised-button color="primary" (click)="newCustomer()">New Customer</button>
+  </div>
   <div class="paginator-container">
     <mat-paginator [length]="numberOfRecords"
                     [pageIndex] = "pageIndex"

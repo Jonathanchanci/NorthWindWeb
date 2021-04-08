@@ -14,7 +14,9 @@ import { MatToolbarModule,
   MatSlideToggleModule,
   MatSelectModule,
   MatOptionModule,
-  MatPaginatorModule} from '@angular/material';
+  MatPaginatorModule,
+  MatDialogModule} from '@angular/material';
+import { NewCustomerComponent } from './new-customer/new-customer.component';
 
 @NgModule({
   imports: [
@@ -33,8 +35,10 @@ import { MatToolbarModule,
     MatSelectModule,
     MatOptionModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
-  declarations: [CustomerListComponent]
+  declarations: [CustomerListComponent, NewCustomerComponent],
+  entryComponents: [NewCustomerComponent]
 })
 export class CustomerModule { }
