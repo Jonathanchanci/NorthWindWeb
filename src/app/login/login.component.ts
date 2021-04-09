@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { WhiteSpaceValidator } from '../shared/validators/WhiteSpaceValidator';
 
 @Component({
   selector: 'app-login',
@@ -25,14 +26,16 @@ export class LoginComponent implements OnInit {
         '', 
         [
           Validators.required, 
-          Validators.email
+          Validators.email,
+          WhiteSpaceValidator.cannotContainSpace
         ]
       ],
       password: ['', 
         [
           Validators.required,
           Validators.minLength(2), 
-          Validators.maxLength(50)
+          Validators.maxLength(50),
+          WhiteSpaceValidator.cannotContainSpace
         ]
       ]
     });

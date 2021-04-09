@@ -40,12 +40,11 @@ export class CustomerListComponent implements OnInit {
 
   newCustomer(): void{
       const dialogRef = this.dialog.open(NewCustomerComponent, {
-        width: '250px',
+        panelClass: "new-customer-modal-dialog"
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-        
+        this.getCustomer(1, this.pageSize);        
       });
     }
   

@@ -8,3 +8,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 h1 {
   text-align: center;
 }
+
+.new-customer-modal-dialog{
+  width: 500px;
+}

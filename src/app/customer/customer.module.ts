@@ -15,8 +15,10 @@ import { MatToolbarModule,
   MatSelectModule,
   MatOptionModule,
   MatPaginatorModule,
-  MatDialogModule} from '@angular/material';
+  MatDialogModule,
+  MatFormFieldModule} from '@angular/material';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -36,7 +38,10 @@ import { NewCustomerComponent } from './new-customer/new-customer.component';
     MatOptionModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [CustomerListComponent, NewCustomerComponent],
   entryComponents: [NewCustomerComponent]
