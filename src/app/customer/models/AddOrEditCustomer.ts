@@ -1,6 +1,6 @@
 export class AddOrEditCustomer {
     id: number;
-    fistName:string;
+    firstName:string;
     lastName: string;
     city: string;
     country: string;

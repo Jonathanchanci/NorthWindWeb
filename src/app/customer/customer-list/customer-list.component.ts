@@ -3,6 +3,7 @@ import { Customer } from '../models/customer';
 import { CustomerService } from './customer.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { NewCustomerComponent } from '../new-customer/new-customer.component';
+import { EditCustomerComponent } from '../edit-customer/edit-customer.component';
 
 @Component({
   selector: 'app-customer-list',
@@ -46,6 +47,21 @@ export class CustomerListComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         this.getCustomer(1, this.pageSize);        
       });
+    }
+
+    editCustomer(id: number):void{
+      const dialogRef = this.dialog.open(EditCustomerComponent, {
+        panelClass: "new-customer-modal-dialog",
+        data: {id: id}
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        this.getCustomer(1, this.pageSize);        
+      });
+    }
+
+    viewDetails(id: number): void{
+
     }
   
 }

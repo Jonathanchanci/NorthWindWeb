@@ -19,6 +19,7 @@ import { MatToolbarModule,
   MatFormFieldModule} from '@angular/material';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [CustomerListComponent, NewCustomerComponent],
-  entryComponents: [NewCustomerComponent]
+  declarations: [CustomerListComponent, NewCustomerComponent, EditCustomerComponent],
+  entryComponents: [NewCustomerComponent, EditCustomerComponent]
 })
 export class CustomerModule { }

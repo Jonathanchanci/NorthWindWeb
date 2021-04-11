@@ -1,0 +1,8 @@
+.label-description{
+    float: left;
+    padding-top: 5%;
+}
+
+mat-form-field {
+    display: block;
+}
