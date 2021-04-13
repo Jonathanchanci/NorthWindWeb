@@ -52,16 +52,6 @@ export class EditCustomerComponent implements OnInit {
     });
   }
 
-  // buildNewCustomerForm(): void{
-  //   this.newCustomerForm = this.fb.group({
-  //     firstName: ['', [Validators.required]],
-  //     lastName: ['', [Validators.required]],
-  //     city: ['', [Validators.required]],
-  //     country: ['', [Validators.required]],
-  //     phone: ['', [Validators.required]]
-  //   });
-  // }
-
   customerRetrieved(id: number): void {
     this.service.getCustomerById(id)
       .subscribe(response => {

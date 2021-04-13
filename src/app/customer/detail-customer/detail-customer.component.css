@@ -1,0 +1,14 @@
+.element-form{
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 767px){
+    .element-form{
+        flex-direction: column;
+        align-items: baseline;
+    }
+}
+.label-description{
+    width: 110px;
+    margin-bottom: 0;
+}

@@ -20,31 +20,18 @@ import { MatToolbarModule,
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { DetailCustomerComponent } from './detail-customer/detail-customer.component';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CustomerRoutingModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTableModule,
-    MatDividerModule,
-    MatSlideToggleModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatProgressSpinnerModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatFormFieldModule,
+    MaterialModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [CustomerListComponent, NewCustomerComponent, EditCustomerComponent],
-  entryComponents: [NewCustomerComponent, EditCustomerComponent]
+  declarations: [CustomerListComponent, NewCustomerComponent, EditCustomerComponent, DetailCustomerComponent],
+  entryComponents: [NewCustomerComponent, EditCustomerComponent, DetailCustomerComponent]
 })
 export class CustomerModule { }
