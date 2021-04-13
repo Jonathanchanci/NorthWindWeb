@@ -19,6 +19,11 @@ const appRoutes : Routes = [
     canLoad: [AuthGuard]
   },
   {
+    path: 'order',
+    loadChildren: './order/order.module#OrderModule',
+    canLoad: [AuthGuard]
+  },
+  {
     path:"login",
     component: LoginComponent
   },
