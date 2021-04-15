@@ -1,0 +1,24 @@
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'app-table-view',
+  templateUrl: './table-view.component.html',
+  styleUrls: ['./table-view.component.css']
+})
+export class TableViewComponent implements OnInit {
+
+  @Input() items: object[] = [];
+  @Input() columns: object[] = [];
+  @Input() limit?: number;
+  @Input() minTableHeight:number =500;
+  @Input() detailTemplate: TemplateRef<any>;
+  @ViewChild('myTable') table: any;
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  toggleExpandRow(row){
+    this.table.rowDetail.toggleExpandRow(row);
+  }
+}
