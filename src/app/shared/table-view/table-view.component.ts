@@ -3,9 +3,9 @@ import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core'
 @Component({
   selector: 'app-table-view',
   templateUrl: './table-view.component.html',
-  styleUrls: ['./table-view.component.css']
+  styleUrls: ['./table-view.component.scss']
 })
-export class TableViewComponent implements OnInit {
+export class TableViewComponent<T> implements OnInit {
 
   @Input() items: object[] = [];
   @Input() columns: object[] = [];

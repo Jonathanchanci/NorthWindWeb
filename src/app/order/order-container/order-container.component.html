@@ -1,3 +1,48 @@
-<p>
-  order-container works!
-</p>
+<div class="content">
+  <app-table-view #tableView [items] = "items" [columns] = "colums" [detailTemplate] = "detailTemplate"> 
+
+  </app-table-view>
+
+  <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template #orderIdCellTemplate>
+    <div class="row-container">
+      <div>
+        <div *ngIf="expanded" class="caret-container expanded" (click)= "toggleExpandRow(row)">          
+          <i class="bi bi-chevron-down"></i>
+        </div>
+        <div *ngIf="!expanded" class="caret-container not-expanded" (click)= "toggleExpandRow(row)">
+          <i class="bi bi-chevron-right"></i>
+        </div>
+      </div>
+      <div>
+        <div><a>{{row.orderId}}</a></div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template #orderNumberCellTemplate>
+    <div class="order-number">
+      <div>
+        {{row.orderNumber}}
+      </div>
+      <div>
+        <mat-icon class="order-number-icon">arrow_forward</mat-icon>
+      </div>
+      <div>
+        <mat-icon class="order-number-icon">clear</mat-icon>
+      </div>
+    </div>
+  </ng-template>
+  
+  <ng-template #detailTemplate let-row="row">
+    <app-table-view class="detail-table" [items] = "row.orderDetails" [columns] = "detailColumns"></app-table-view>
+  </ng-template>
+
+  <div class="paginator-container">
+    <mat-paginator [length]="numberOfRecords"
+                    [pageIndex] = "pageIndex"
+                    [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions"
+                    (page)="changePage($event)">
+    </mat-paginator>
+  </div>
+</div>
