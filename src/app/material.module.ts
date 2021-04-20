@@ -13,7 +13,8 @@ import { MatToolbarModule,
   MatSelectModule,
   MatOptionModule,
   MatDialogModule,
-  MatPaginatorModule} from '@angular/material';
+  MatPaginatorModule
+  } from '@angular/material';
 
 @NgModule({
   imports: [

@@ -1,0 +1,9 @@
+.order-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-edit-label{
+    width: 140px;
+}

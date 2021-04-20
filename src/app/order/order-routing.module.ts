@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrderContainerComponent } from './order-container/order-container.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { Role } from '../auth/role.enum';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 const orderRoutes: Routes = [
   {
@@ -12,6 +13,10 @@ const orderRoutes: Routes = [
       {
         path:'',
         component: OrderContainerComponent
+      },
+      {
+        path: 'detail/:id',
+        component: OrderDetailComponent
       }
     ],
     canActivate: [AuthGuard],

@@ -25,7 +25,7 @@
         {{row.orderNumber}}
       </div>
       <div>
-        <mat-icon class="order-number-icon">arrow_forward</mat-icon>
+        <mat-icon class="order-number-icon" [routerLink]="['/order/detail', row.orderId]"  >arrow_forward</mat-icon>
       </div>
       <div>
         <mat-icon class="order-number-icon">clear</mat-icon>
