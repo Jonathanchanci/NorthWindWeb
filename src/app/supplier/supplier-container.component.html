@@ -1,0 +1,14 @@
+<div class="supplier-container">
+  <div class="card text-center"  *ngFor="let item of supplierList">    
+    <h5 class="card-header">{{item.companyName}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{item.contactName}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{item.country}}</h6>
+      <p class="card-text">{{item.city}}</p>
+      <a href="#" class="btn btn-primary">Detail</a>
+    </div>
+    <div class="card-footer text-muted">
+      Phone: {{item.phone}}
+    </div>
+  </div>
+</div>
