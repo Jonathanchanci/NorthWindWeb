@@ -1,5 +1,5 @@
 <div class="supplier-container">
-  <div class="card text-center"  *ngFor="let item of supplierList">    
+  <!-- <div class="card text-center"  *ngFor="let item of supplierList">    
     <h5 class="card-header">{{item.companyName}}</h5>
     <div class="card-body">
       <h5 class="card-title">{{item.contactName}}</h5>
@@ -10,5 +10,17 @@
     <div class="card-footer text-muted">
       Phone: {{item.phone}}
     </div>
-  </div>
+  </div> -->
+
+  <app-switch-view [template]="templates" [defaultTemplate]="defaultTemplate">
+
+  </app-switch-view>
+
+  <ng-template #cardViewTemplate>
+    <p>Card View</p>
+  </ng-template>
+
+  <ng-template #tableViewTemplate>
+    <p>Table View</p>
+  </ng-template>
 </div>
