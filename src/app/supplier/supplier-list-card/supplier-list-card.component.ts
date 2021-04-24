@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Supplier } from '../models/supplier';
 
 @Component({
   selector: 'app-supplier-list-card',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierListCardComponent implements OnInit {
 
+  @Input() items: Supplier[] = [];
   constructor() { }
 
   ngOnInit() {

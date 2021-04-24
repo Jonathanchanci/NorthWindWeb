@@ -11,7 +11,7 @@ import { SupplierService } from './supplier.service';
 })
 export class SupplierContainerComponent implements OnInit, AfterViewInit {
 
-  supplierList: Supplier[] = [];
+  items: Supplier[] = [];
   @ViewChild("cardViewTemplate") private cardViewTemplate: TemplateRef<any>;
   @ViewChild("tableViewTemplate") private tableViewTemplate: TemplateRef<any>;
   templates: Map<string, TemplateRef<any>> = new Map<string, TemplateRef<any>>();
@@ -27,14 +27,14 @@ export class SupplierContainerComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-    //this.getSupplierList(1, 10);
+    this.getSupplierList(1, 10);
     this.defaultTemplate = SwitchViewComponent.CARD_KEY;
   }
 
   getSupplierList(page: number, rows: number): void{
     this.service.getSupplierList(page, rows)
       .subscribe(response =>{
-        this.supplierList = response;
+        this.items = response;
       });
   }
 
