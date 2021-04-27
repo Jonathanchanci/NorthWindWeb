@@ -14,7 +14,8 @@ import { MatToolbarModule,
   MatOptionModule,
   MatDialogModule,
   MatPaginatorModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSidenavModule
   } from '@angular/material';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MatToolbarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSidenavModule
   ],
   exports: [
     MatToolbarModule,
@@ -51,7 +53,8 @@ import { MatToolbarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSidenavModule
   ],
   declarations: []
 })
