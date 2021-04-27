@@ -11,7 +11,8 @@ export class SupplierService {
 
   constructor(private http: HttpClient) { }
 
-  getSupplierList(page: number, rows: number):Observable<Supplier[]>{
-    return this.http.get<Supplier[]>(`${environment.urlService}supplier/GetPaginatedSupplier/${page}/${rows}`);
+  getSupplierList(page: number, rows: number, searchTerm: string):Observable<Supplier[]>{
+    return this.http.post<Supplier[]>(`${environment.urlService}supplier/GetPaginatedSupplier`,
+     {page: page, rows: rows, searchTerm: searchTerm});
   }
 }

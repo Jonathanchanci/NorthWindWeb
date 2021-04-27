@@ -6,13 +6,16 @@ import { SupplierListCardComponent } from './supplier-list-card/supplier-list-ca
 import { SupplierRoutingModule } from './supplier-routing.module';
 import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SupplierRoutingModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [SupplierContainerComponent, SupplierListTableComponent, SupplierListCardComponent]
 })

@@ -1,4 +1,10 @@
 <div class="supplier-container">
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Search" type="text" [formControl] = "searchControl">
+    </mat-form-field>
+  </div>
+
   <app-switch-view [template]="templates" [defaultTemplate]="defaultTemplate">
 
   </app-switch-view>
@@ -10,6 +16,6 @@
   <ng-template #tableViewTemplate>
     <app-supplier-list-table [items] = "items">
 
-    </app-supplier-list-table>>
+    </app-supplier-list-table>
   </ng-template>
 </div>
